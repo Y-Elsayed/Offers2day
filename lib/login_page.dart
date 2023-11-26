@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Image.asset("assets/doge.jpg",
                 width: 120, height: 120), //Logo placeholder
-            
+
             const Gap(35),
 
             Container(
@@ -46,9 +46,9 @@ class _LoginPageState extends State<LoginPage> {
                       color: Color.fromARGB(255, 92, 91, 91),
                       fontSize: 30),
                 )),
-            
+
             const Gap(35),
-            
+
             SizedBox(
                 width: screenSize.width * 0.9,
                 height: 50,
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                 )),
 
             const Gap(30),
-            
+
             SizedBox(
                 width: screenSize.width * 0.9,
                 height: 50,
@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.bold),
                   ),
                 )),
-            
+
             const Gap(30),
 
             SizedBox(
@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     child:
                         const Text('Sign in', style: TextStyle(fontSize: 15)))),
-            
+
             const Gap(30),
 
             Container(
@@ -131,14 +131,15 @@ class _LoginPageState extends State<LoginPage> {
                       fontSize: 16),
                 )),
 
-            const Gap(175),
+            const Gap(20),
 
             RichText(
               text: TextSpan(
                 text: "Don't have an account? ",
                 style: const TextStyle(
-                    color: Color.fromARGB(255, 92, 91, 91),
-                    fontSize: 16,),
+                  color: Color.fromARGB(255, 92, 91, 91),
+                  fontSize: 16,
+                ),
                 children: <TextSpan>[
                   TextSpan(
                     text: 'Sign Up',
