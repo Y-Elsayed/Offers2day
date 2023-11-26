@@ -137,11 +137,13 @@ class _LoginPageState extends State<LoginPage> {
               text: TextSpan(
                 text: "Don't have an account? ",
                 style: const TextStyle(
-                    color: Color.fromARGB(255, 92, 91, 91), fontSize: 25),
+                    color: Color.fromARGB(255, 92, 91, 91),
+                    fontSize: 16,),
                 children: <TextSpan>[
                   TextSpan(
                     text: 'Sign Up',
                     style: const TextStyle(
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 92, 91, 91),
                     ),
