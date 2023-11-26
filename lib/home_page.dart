@@ -7,9 +7,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: null,
-      body: Center(
-        child: Text('Here will be the offers'),
-      ),
+      body: Column(children: [
+        SizedBox(
+            child: SearchBar(
+          hintText: "Search offers2day",
+        )),
+      ]),
     );
   }
 }

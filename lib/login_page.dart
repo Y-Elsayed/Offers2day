@@ -131,6 +131,42 @@ class _LoginPageState extends State<LoginPage> {
                       fontSize: 16),
                 )),
 
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              IconButton(
+                onPressed: () {
+                  // Add your Facebook button logic here
+                  // print('Facebook button pressed');
+                },
+                icon: const Icon(
+                  Icons.facebook_outlined,
+                  size: 30.0, // Adjust the size as needed
+                  color: Colors.blue, // Adjust the color as needed
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  // Add your Facebook button logic here
+                  // print('Facebook button pressed');
+                },
+                icon: const Icon(
+                  Icons.facebook_outlined,
+                  size: 30.0, // Adjust the size as needed
+                  color: Colors.blue, // Adjust the color as needed
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  // Add your Facebook button logic here
+                  // print('Facebook button pressed');
+                },
+                icon: const Icon(
+                  Icons.facebook_outlined,
+                  size: 30.0, // Adjust the size as needed
+                  color: Colors.blue, // Adjust the color as needed
+                ),
+              ),
+            ]),
+
             const Gap(20),
 
             RichText(
