@@ -34,7 +34,9 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Image.asset("assets/doge.jpg",
                 width: 120, height: 120), //Logo placeholder
+
             const Gap(35),
+
             Container(
                 alignment: Alignment.topLeft,
                 child: const Text(
@@ -44,7 +46,9 @@ class _LoginPageState extends State<LoginPage> {
                       color: Color.fromARGB(255, 92, 91, 91),
                       fontSize: 30),
                 )),
+
             const Gap(35),
+
             SizedBox(
                 width: screenSize.width * 0.9,
                 height: 50,
@@ -59,8 +63,8 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(10.0))),
                 )),
 
-            // const SizedBox(height: 8),
             const Gap(30),
+
             SizedBox(
                 width: screenSize.width * 0.9,
                 height: 50,
@@ -77,6 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                 )),
 
             const Gap(30),
+
             Container(
                 alignment: Alignment.bottomRight,
                 child: TextButton(
@@ -92,6 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.bold),
                   ),
                 )),
+
             const Gap(30),
 
             SizedBox(
@@ -131,11 +137,14 @@ class _LoginPageState extends State<LoginPage> {
               text: TextSpan(
                 text: "Don't have an account? ",
                 style: const TextStyle(
-                    color: Color.fromARGB(255, 92, 91, 91), fontSize: 16),
+                  color: Color.fromARGB(255, 92, 91, 91),
+                  fontSize: 16,
+                ),
                 children: <TextSpan>[
                   TextSpan(
                     text: 'Sign Up',
                     style: const TextStyle(
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 92, 91, 91),
                     ),
