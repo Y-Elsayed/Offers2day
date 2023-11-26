@@ -1,6 +1,10 @@
+// Packages
 import 'package:flutter/material.dart';
-import 'navigator_service.dart';
 import 'package:gap/gap.dart';
+import 'package:flutter/gestures.dart';
+
+// Files
+import 'navigator_service.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -14,7 +18,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  // Navigator Controller
   NavigatorService navigatorService = NavigatorService();
+
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
@@ -115,7 +122,28 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.black,
                       fontSize: 16),
                 )),
-            const Gap(10),
+            const Gap(175),
+            RichText(
+              text: TextSpan(
+                text: "Don't have an account? ",
+                style: const TextStyle(
+                    color: Color.fromARGB(255, 92, 91, 91), fontSize: 25),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'Sign Up',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 92, 91, 91),
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        // Handle button click
+                        navigatorService.navigateToSignUpScreen(context);
+                      },
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

@@ -1,4 +1,7 @@
+// Packages
 import 'package:flutter/material.dart';
+
+// Files
 import 'home_page.dart';
 import 'signup_page.dart';
 import 'forget_password_page.dart';
@@ -30,13 +33,13 @@ class NavigatorService {
       context,
       MaterialPageRoute(builder: (context) => const ForgetPasswordScreen()),
     );
-
-    // void _navigateToSignUpScreen(BuildContext context) {
-    //   // Navigate to the HomeScreen
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => const SignUpScreen()),
-    //   );
-    // }
   }
+
+  void navigateToSignUpScreen(BuildContext context) {
+      // Navigate to the HomeScreen
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const SignUpScreen()),
+      );
+    }
 }
