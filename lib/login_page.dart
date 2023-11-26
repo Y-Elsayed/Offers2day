@@ -112,7 +112,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     child:
                         const Text('Sign in', style: TextStyle(fontSize: 15)))),
+
             const Gap(30),
+
             Container(
                 alignment: Alignment.center,
                 child: const Text(
@@ -122,12 +124,14 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.black,
                       fontSize: 16),
                 )),
-            const Gap(175),
+
+            const Gap(20),
+
             RichText(
               text: TextSpan(
                 text: "Don't have an account? ",
                 style: const TextStyle(
-                    color: Color.fromARGB(255, 92, 91, 91), fontSize: 25),
+                    color: Color.fromARGB(255, 92, 91, 91), fontSize: 16),
                 children: <TextSpan>[
                   TextSpan(
                     text: 'Sign Up',
