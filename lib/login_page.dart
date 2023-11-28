@@ -19,11 +19,10 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  // Navigator Controller
-  NavigatorService navigatorService = NavigatorService();
-
   @override
   Widget build(BuildContext context) {
+    // Navigator Controller
+    NavigatorService navigatorService = NavigatorService();
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: null,
@@ -130,41 +129,103 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.black,
                       fontSize: 16),
                 )),
-
+            const Gap(10),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              IconButton(
-                onPressed: () {
-                  // Add your Facebook button logic here
-                  // print('Facebook button pressed');
-                },
-                icon: const Icon(
-                  Icons.facebook_outlined,
-                  size: 30.0, // Adjust the size as needed
-                  color: Colors.blue, // Adjust the color as needed
+              Center(
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(16.0),
+                  onTap: () {
+                    // Add your IconButton logic here
+                    // navigatorService
+                    //     .navigateToSignUpScreen(context); //place holder
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(
+                        8.0), // Adjust the padding as needed
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      color: Colors.white, // Specify the background color
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2), // Shadow color
+                          spreadRadius: 1,
+                          blurRadius: 2,
+                          offset: const Offset(0, 5), // Offset of the shadow
+                        ),
+                      ],
+                    ),
+                    child: const Icon(
+                      Icons.facebook_rounded,
+                      color: Colors.blue,
+                      size: 30, // Specify the icon color
+                    ),
+                  ),
                 ),
               ),
-              IconButton(
-                onPressed: () {
-                  // Add your Facebook button logic here
-                  // print('Facebook button pressed');
-                },
-                icon: const Icon(
-                  Icons.facebook_outlined,
-                  size: 30.0, // Adjust the size as needed
-                  color: Colors.blue, // Adjust the color as needed
+              const SizedBox(width: 16), //Horizonatal distance
+              Center(
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(16.0),
+                  onTap: () {
+                    // Add your IconButton logic here
+                    // navigatorService
+                    //     .navigateToSignUpScreen(context); //place holder
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(
+                        8.0), // Adjust the padding as needed
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      color: Colors.white, // Specify the background color
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2), // Shadow color
+                          spreadRadius: 1,
+                          blurRadius: 2,
+                          offset: const Offset(0, 5), // Offset of the shadow
+                        ),
+                      ],
+                    ),
+                    child: const Icon(
+                      Icons.facebook_rounded,
+                      color: Colors.blue,
+                      size: 30, // Specify the icon color
+                    ),
+                  ),
                 ),
               ),
-              IconButton(
-                onPressed: () {
-                  // Add your Facebook button logic here
-                  // print('Facebook button pressed');
-                },
-                icon: const Icon(
-                  Icons.facebook_outlined,
-                  size: 30.0, // Adjust the size as needed
-                  color: Colors.blue, // Adjust the color as needed
+              const SizedBox(width: 16),
+              Center(
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(16.0),
+                  onTap: () {
+                    // Add your IconButton logic here
+                    // navigatorService
+                    //     .navigateToSignUpScreen(context); //place holder
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(
+                        8.0), // Adjust the padding as needed
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      color: Colors.white, // Specify the background color
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2), // Shadow color
+                          spreadRadius: 1,
+                          blurRadius: 2,
+                          offset: const Offset(0, 5), // Offset of the shadow
+                        ),
+                      ],
+                    ),
+                    child: const Icon(
+                      Icons.facebook_rounded,
+                      color: Colors.blue,
+                      size: 30, // Specify the icon color
+                    ),
+                  ),
                 ),
-              ),
+              )
             ]),
 
             const Gap(20),

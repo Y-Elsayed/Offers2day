@@ -36,10 +36,10 @@ class NavigatorService {
   }
 
   void navigateToSignUpScreen(BuildContext context) {
-      // Navigate to the HomeScreen
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const SignUpScreen()),
-      );
-    }
+    // Navigate to the HomeScreen
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SignUpScreen()),
+    );
+  }
 }
