@@ -20,6 +20,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _confirmpasswordController =
       TextEditingController();
 
+  bool _obscureValue = true;
+
+  void _updateobscurevalue() {
+    setState(() {
+      if (_obscureValue) {
+        _obscureValue = false;
+      } else {
+        _obscureValue = true;
+      }
+    });
+  }
+
   // Navigator Controller
   NavigatorService navigatorService = NavigatorService();
 
@@ -73,12 +85,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 50,
                     child: TextField(
                       controller: _fullnameController,
-                      obscureText: true,
                       decoration: InputDecoration(
                           prefixIcon:
                               const Icon(Icons.person, color: Colors.orange),
-                          labelText: '\t\tFull Name',
-                          labelStyle: const TextStyle(color: Colors.grey),
+                          hintText: '\t\tFull Name',
+                          hintStyle: const TextStyle(color: Colors.grey),
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 0.0),
                           enabledBorder: OutlineInputBorder(
                               borderSide:
                                   const BorderSide(color: Colors.orange),
@@ -93,54 +106,88 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       decoration: InputDecoration(
                           prefixIcon: const Icon(Icons.email_outlined,
                               color: Colors.blue),
-                          labelText: '\t\tEmail',
-                          labelStyle: const TextStyle(color: Colors.grey),
+                          hintText: '\t\tEmail',
+                          hintStyle: const TextStyle(color: Colors.grey),
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 0.0),
                           enabledBorder: OutlineInputBorder(
                               borderSide: const BorderSide(color: Colors.blue),
                               borderRadius: BorderRadius.circular(10.0))),
                     )),
                 const Gap(30),
                 SizedBox(
-                    width: screenSize.width * 0.9,
-                    height: 50,
-                    child: TextField(
-                      controller: _passwordController,
-                      obscureText: true,
-                      decoration: InputDecoration(
+                  width: screenSize.width * 0.9,
+                  height: 50,
+                  child: Stack(
+                    alignment: Alignment.centerRight,
+                    children: [
+                      TextField(
+                        controller: _passwordController,
+                        obscureText: _obscureValue,
+                        decoration: InputDecoration(
                           prefixIcon: const Icon(Icons.lock_outline_rounded,
                               color: Colors.orange),
-                          labelText: '\t\tPassword',
-                          labelStyle: const TextStyle(color: Colors.grey),
+                          hintText: '\t\tPassword',
+                          hintStyle: const TextStyle(color: Colors.grey),
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 0.0),
                           enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  const BorderSide(color: Colors.orange),
-                              borderRadius: BorderRadius.circular(10.0))),
-                    )),
+                            borderSide: const BorderSide(color: Colors.orange),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          _updateobscurevalue();
+                        },
+                        icon: const Icon(
+                          Icons.remove_red_eye,
+                          color: Colors.orange,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 const Gap(30),
                 SizedBox(
                     width: screenSize.width * 0.9,
                     height: 50,
-                    child: TextField(
-                      controller: _confirmpasswordController,
-                      decoration: InputDecoration(
-                          prefixIcon: const Icon(Icons.lock_outline_rounded,
-                              color: Colors.blue),
-                          labelText: '\t\tConfirm Password',
-                          labelStyle: const TextStyle(color: Colors.grey),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.blue),
-                              borderRadius: BorderRadius.circular(10.0))),
-                    )),
+                    child: Stack(alignment: Alignment.centerRight, children: [
+                      TextField(
+                        controller: _confirmpasswordController,
+                        obscureText: _obscureValue,
+                        decoration: InputDecoration(
+                            prefixIcon: const Icon(Icons.lock_outline_rounded,
+                                color: Colors.blue),
+                            hintText: '\t\tConfirm Password',
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            contentPadding:
+                                const EdgeInsets.symmetric(vertical: 0.0),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    const BorderSide(color: Colors.blue),
+                                borderRadius: BorderRadius.circular(10.0))),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          _updateobscurevalue();
+                        },
+                        icon: const Icon(
+                          Icons.remove_red_eye,
+                          color: Colors.blue,
+                        ),
+                      )
+                    ])),
                 const Gap(30),
                 SizedBox(
                     width: screenSize.width * 0.9,
                     height: 50,
                     child: ElevatedButton(
                         onPressed: () {
-                          // Perform login logic here
-                          //pop the login page widget from the stack
+                          // pop the Sign Up page widget from the stack
 
-                          // Check if login is successful (for simplicity, always navigate)
+                          // Check if Sign Up is successful (for simplicity, always navigate)
                           navigatorService.popFromNavigator(context);
                         },
                         style: ElevatedButton.styleFrom(
