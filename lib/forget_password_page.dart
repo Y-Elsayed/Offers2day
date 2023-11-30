@@ -134,10 +134,12 @@ class _ForgetPasswordState extends State<ForgetPasswordScreen> {
                             hintText: '\t\tEnter your email / phone number',
                             hintStyle: const TextStyle(
                                 color: Colors.black,
+                                fontSize: 15,
                                 fontFamily: 'Inter',
-                                fontWeight: FontWeight.w400),
+                                fontWeight: FontWeight.w400,
+                                height: 0),
                             contentPadding:
-                                const EdgeInsets.symmetric(vertical: 0.0),
+                                const EdgeInsets.symmetric(vertical: 11.0, horizontal: 16.0),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                     width: 1,
