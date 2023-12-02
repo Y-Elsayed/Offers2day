@@ -26,22 +26,19 @@ class _HomePageState extends State<HomePage> {
           Container(
               color: const Color.fromARGB(255, 248, 183, 108),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   IconButton(
-                      padding: const EdgeInsets.only(right: 60),
                       onPressed: () {
                         //filter logic
                       },
                       icon: const Icon(Icons.restaurant_rounded, size: 40)),
                   IconButton(
-                      padding: const EdgeInsets.only(right: 60),
                       onPressed: () {
                         //filter logic
                       },
                       icon: const Icon(Icons.restaurant_rounded, size: 40)),
                   IconButton(
-                      padding: const EdgeInsets.only(right: 60),
                       onPressed: () {
                         //filter logic
                       },
@@ -81,22 +78,19 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                   color: Colors.grey,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconButton(
-                          padding: const EdgeInsets.only(right: 60),
                           onPressed: () {
                             //filter logic
                           },
                           icon: const Icon(Icons.person, size: 40)),
                       IconButton(
-                          padding: const EdgeInsets.only(right: 60),
                           onPressed: () {
                             //filter logic
                           },
                           icon: const Icon(Icons.home, size: 40)),
                       IconButton(
-                          padding: const EdgeInsets.only(right: 60),
                           onPressed: () {
                             //filter logic
                           },
