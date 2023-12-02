@@ -1,22 +1,16 @@
 // Packages
 import 'package:flutter/material.dart';
 
-// Files
-import 'navigator_service.dart';
-
-class ForgetPasswordScreen extends StatefulWidget {
-  const ForgetPasswordScreen({super.key});
+class ForgetPasswordPage extends StatefulWidget {
+  const ForgetPasswordPage({super.key});
 
   @override
-  State<ForgetPasswordScreen> createState() => _ForgetPasswordState();
+  State<ForgetPasswordPage> createState() => _ForgetPasswordState();
 }
 
-class _ForgetPasswordState extends State<ForgetPasswordScreen> {
+class _ForgetPasswordState extends State<ForgetPasswordPage> {
   // Controllers
   final TextEditingController _forgotController = TextEditingController();
-
-  // Navigators
-  NavigatorService navigatorService = NavigatorService();
 
   @override
   Widget build(BuildContext context) {
@@ -133,13 +127,13 @@ class _ForgetPasswordState extends State<ForgetPasswordScreen> {
                                 color: Color.fromARGB(175, 174, 217, 224)),
                             hintText: '\t\tEnter your email / phone number',
                             hintStyle: const TextStyle(
-                                color: Colors.black,
+                                color: Colors.black45,
                                 fontSize: 15,
                                 fontFamily: 'Inter',
                                 fontWeight: FontWeight.w400,
                                 height: 0),
-                            contentPadding:
-                                const EdgeInsets.symmetric(vertical: 11.0, horizontal: 16.0),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 11.0, horizontal: 16.0),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                     width: 1,
@@ -154,8 +148,7 @@ class _ForgetPasswordState extends State<ForgetPasswordScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       // Perform the logic for the reset pawssword
-
-                      navigatorService.popFromNavigator(context);
+                      Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor:

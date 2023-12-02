@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter/gestures.dart';
 
-// Files
-import 'navigator_service.dart';
-
 class LoginPage extends StatefulWidget {
   const LoginPage({
     Key? key,
@@ -21,8 +18,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Navigator Controller
-    NavigatorService navigatorService = NavigatorService();
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: null,
@@ -86,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: TextButton(
                   onPressed: () {
                     // forget password logic here
-                    navigatorService.navigateToForgetPasswordScreen(context);
+                    Navigator.pushNamed(context, '/forgetpasswordpage');
                   },
                   child: const Text(
                     'Forget Password ?',
@@ -108,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                       //pop the login page widget from the stack
 
                       // Check if login is successful (for simplicity, always navigate)
-                      navigatorService.navigateToHomeScreen(context);
+                      Navigator.pushNamed(context, '/homepage');
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
@@ -248,7 +243,7 @@ class _LoginPageState extends State<LoginPage> {
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         // Handle button click
-                        navigatorService.navigateToSignUpScreen(context);
+                        Navigator.pushNamed(context, '/signuppage');
                       },
                   ),
                 ],

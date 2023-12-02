@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'navigator_service.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({
+class HomePage extends StatefulWidget {
+  const HomePage({
     Key? key,
   }) : super(key: key);
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
   // List<Post> feedPosts = []; // Example data structure for feed posts
 
   @override
   Widget build(BuildContext context) {
-    NavigatorService navigatorService = NavigatorService();
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
         appBar: null,
@@ -77,7 +74,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: const Center(
                       child: Text(
                     "Here will be the user's feed",
-                    textScaleFactor: 2,
                   ))),
             ),
           ),
