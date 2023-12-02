@@ -130,13 +130,12 @@ class _ForgetPasswordState extends State<ForgetPasswordPage> {
                                 color: Colors.black45,
                                 fontSize: 15,
                                 fontFamily: 'Inter',
-                                fontWeight: FontWeight.w400,
-                                height: 0),
+                                fontWeight: FontWeight.w400),
                             contentPadding: const EdgeInsets.symmetric(
                                 vertical: 11.0, horizontal: 16.0),
                             enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                    width: 1,
+                                    width: 2,
                                     color: Color.fromARGB(175, 174, 217, 224)),
                                 borderRadius: BorderRadius.circular(15.0))),
                       ))),
@@ -151,6 +150,9 @@ class _ForgetPasswordState extends State<ForgetPasswordPage> {
                       Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)
+                      ),
                         backgroundColor:
                             const Color.fromARGB(175, 174, 217, 224)),
                     child: const Text('Reset Password',
