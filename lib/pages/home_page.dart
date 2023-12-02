@@ -15,68 +15,32 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-        appBar: null,
-        body: Column(children: [
-          Container(
-              alignment: Alignment.center,
-              color: const Color.fromARGB(255, 101, 175, 209),
-              height: screenSize.height * 0.1,
-              child: const SearchBar(hintText: "Search offers2day")),
-          //starting from here will be a list view
-          Container(
-              color: const Color.fromARGB(255, 248, 183, 108),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        //filter logic
-                      },
-                      icon: const Icon(Icons.restaurant_rounded, size: 40)),
-                  IconButton(
-                      onPressed: () {
-                        //filter logic
-                      },
-                      icon: const Icon(Icons.restaurant_rounded, size: 40)),
-                  IconButton(
-                      onPressed: () {
-                        //filter logic
-                      },
-                      icon: const Icon(Icons.restaurant_rounded, size: 40)),
-                ],
-              )),
-          // const Gap(20),
-          //This will contain the Hot offers, automatically swiped
-          Container(
-            child: SizedBox(
-              width: screenSize.width,
-              height: screenSize.height * 0.4,
-              child: Container(
-                // color: Colors.blue,
-                child: Image.asset(
-                  'assets/offer_placeholder.jpg',
-                  fit: BoxFit.cover,
-                ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: const Color(0xFFF5F5F5),
+          selectedItemColor: Colors.black,
+          items: const [
+            // Home
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+
+            // Menu
+            BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Settings"),
+
+            // Profile
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          ],
+        ),
+        body: Container(
+            width: screenSize.width,
+            height: screenSize.height,
+            clipBehavior: Clip.antiAlias,
+            decoration: const BoxDecoration(color: Color(0xFFF5F5F5)),
+            child: Column(children: [
+              const SearchBar(
+                hintText: "Search offers",
               ),
-            ),
-          ),
-          //This will have the filter iconbuttons
-          //This will be the scrollable offers
-          Container(
-            child: SizedBox(
-              width: screenSize.width,
-              height: screenSize.height * 0.35,
-              child: Container(
-                  color: Colors.blue,
-                  child: const Center(
-                      child: Text(
-                    "Here will be the user's feed",
-                  ))),
-            ),
-          ),
-          Expanded(
-              child: Container(
-                  color: Colors.grey,
+              //starting from here will be a list view
+              Container(
+                  color: const Color.fromARGB(255, 248, 183, 108),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -84,19 +48,43 @@ class _HomePageState extends State<HomePage> {
                           onPressed: () {
                             //filter logic
                           },
-                          icon: const Icon(Icons.person, size: 40)),
+                          icon: const Icon(Icons.restaurant_rounded, size: 40)),
                       IconButton(
                           onPressed: () {
                             //filter logic
                           },
-                          icon: const Icon(Icons.home, size: 40)),
+                          icon: const Icon(Icons.restaurant_rounded, size: 40)),
                       IconButton(
                           onPressed: () {
                             //filter logic
                           },
-                          icon: const Icon(Icons.menu, size: 40)),
+                          icon: const Icon(Icons.restaurant_rounded, size: 40)),
                     ],
-                  ))),
-        ]));
+                  )),
+              // const Gap(20),
+              //This will contain the Hot offers, automatically swiped
+              SizedBox(
+                width: screenSize.width,
+                height: screenSize.height * 0.4,
+                child: Image.asset(
+                  'assets/offer_placeholder.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              //This will have the filter iconbuttons
+              //This will be the scrollable offers
+              Expanded(
+                child: SizedBox(
+                  width: screenSize.width,
+                  height: screenSize.height * 0.35,
+                  child: Container(
+                      color: Colors.blue,
+                      child: const Center(
+                          child: Text(
+                        "Here will be the user's feed",
+                      ))),
+                ),
+              ),
+            ])));
   }
 }
