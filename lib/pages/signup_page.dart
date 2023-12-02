@@ -1,6 +1,7 @@
 // Packages
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/services.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -16,6 +17,8 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmpasswordController =
       TextEditingController();
+  final TextEditingController _phonenumberController = TextEditingController();
+  final TextEditingController _dateofbirthController = TextEditingController();
 
   bool _obscureValue = true;
 
@@ -127,7 +130,8 @@ class _SignUpPageState extends State<SignUpPage> {
               child: TextField(
                 controller: _firstnameController,
                 decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.person, color: Colors.orange),
+                  prefixIcon: const Icon(Icons.person,
+                      color: Color.fromRGBO(255, 218, 185, 1)),
                   hintText: '\t\tFirst Name',
                   hintStyle: const TextStyle(
                       color: Colors.black45,
@@ -137,7 +141,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   contentPadding: const EdgeInsets.symmetric(
                       vertical: 11.0, horizontal: 16.0),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.orange),
+                    borderSide: const BorderSide(
+                        color: Color.fromRGBO(255, 218, 185, 1)),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),
@@ -153,7 +158,8 @@ class _SignUpPageState extends State<SignUpPage> {
               child: TextField(
                 controller: _lastnameController,
                 decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.person, color: Colors.orange),
+                  prefixIcon: const Icon(Icons.person,
+                      color: Color.fromRGBO(255, 218, 185, 1)),
                   hintText: '\t\tLast Name',
                   hintStyle: const TextStyle(
                       color: Colors.black45,
@@ -163,7 +169,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   contentPadding: const EdgeInsets.symmetric(
                       vertical: 11.0, horizontal: 16.0),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.orange),
+                    borderSide: const BorderSide(
+                        color: Color.fromRGBO(255, 218, 185, 1)),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),
@@ -180,7 +187,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     controller: _emailController,
                     decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.email_outlined,
-                            color: Colors.blue),
+                            color: Color.fromRGBO(174, 217, 224, 1)),
                         hintText: '\t\tEmail',
                         hintStyle: const TextStyle(
                             color: Colors.black45,
@@ -190,7 +197,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         contentPadding: const EdgeInsets.symmetric(
                             vertical: 11.0, horizontal: 16.0),
                         enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.blue),
+                            borderSide: const BorderSide(
+                                color: Color.fromRGBO(174, 217, 224, 1)),
                             borderRadius: BorderRadius.circular(10.0))),
                   ))),
           Positioned(
@@ -207,7 +215,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       obscureText: _obscureValue,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.lock_outline_rounded,
-                            color: Colors.orange),
+                            color: Color.fromRGBO(255, 218, 185, 1)),
                         hintText: '\t\tPassword',
                         hintStyle: const TextStyle(
                             color: Colors.black45,
@@ -217,7 +225,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         contentPadding: const EdgeInsets.symmetric(
                             vertical: 11.0, horizontal: 16.0),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.orange),
+                          borderSide: const BorderSide(
+                              color: Color.fromRGBO(255, 218, 185, 1)),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
@@ -228,7 +237,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       },
                       icon: const Icon(
                         Icons.remove_red_eye,
-                        color: Colors.orange,
+                        color: Color.fromRGBO(255, 218, 185, 1),
                       ),
                     ),
                   ],
@@ -246,7 +255,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       obscureText: _obscureValue,
                       decoration: InputDecoration(
                           prefixIcon: const Icon(Icons.lock_outline_rounded,
-                              color: Colors.blue),
+                              color: Color.fromRGBO(174, 217, 224, 1)),
                           hintText: '\t\tConfirm Password',
                           hintStyle: const TextStyle(
                               color: Colors.black45,
@@ -256,7 +265,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           contentPadding: const EdgeInsets.symmetric(
                               vertical: 11.0, horizontal: 16.0),
                           enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.blue),
+                              borderSide: const BorderSide(
+                                  color: Color.fromRGBO(174, 217, 224, 1)),
                               borderRadius: BorderRadius.circular(10.0))),
                     ),
                     IconButton(
@@ -265,10 +275,84 @@ class _SignUpPageState extends State<SignUpPage> {
                       },
                       icon: const Icon(
                         Icons.remove_red_eye,
-                        color: Colors.blue,
+                        color: Color.fromRGBO(174, 217, 224, 1),
                       ),
                     )
                   ]))),
+          Positioned(
+              top: screenSize.height * 0.64,
+              left: screenSize.width * 0.056,
+              child: SizedBox(
+                width: screenSize.width * 0.9,
+                height: screenSize.height * 0.07,
+                child: TextField(
+                    controller: _phonenumberController,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.phone,
+                            color: Color.fromRGBO(255, 218, 185, 1)),
+                        hintText: '\t\tPhone Number',
+                        hintStyle: const TextStyle(
+                            color: Colors.black45,
+                            fontSize: 15,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w400),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 11.0, horizontal: 16.0),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color.fromRGBO(255, 218, 185, 1)),
+                            borderRadius: BorderRadius.circular(10.0)))),
+              )),
+          Positioned(
+              top: screenSize.height * 0.72,
+              left: screenSize.width * 0.056,
+              child: SizedBox(
+                width: screenSize.width * 0.9,
+                height: screenSize.height * 0.07,
+                child: TextField(
+                    controller: _dateofbirthController,
+                    keyboardType: TextInputType.datetime,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.date_range,
+                            color: Color.fromRGBO(174, 217, 224, 1)),
+                        hintText: '\t\tDate of Birth',
+                        hintStyle: const TextStyle(
+                            color: Colors.black45,
+                            fontSize: 15,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w400),
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 11.0, horizontal: 16.0),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color.fromRGBO(174, 217, 224, 1)),
+                            borderRadius: BorderRadius.circular(10.0)))),
+              )),
+          Positioned(
+              top: screenSize.height * 0.82,
+              left: screenSize.width * 0.056,
+              width: screenSize.width * 0.9,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Perform the logic for the reset pawssword
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    backgroundColor: const Color.fromRGBO(255, 218, 185, 1)),
+                child: const Text('Sign Up',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontFamily: 'Intel',
+                        fontWeight: FontWeight.bold)),
+              ))
         ],
       ),
     ));
