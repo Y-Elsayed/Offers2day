@@ -243,6 +243,7 @@ class _LoginPageState extends State<LoginPage> {
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         // Handle button click
+                        Navigator.pop(context);
                         Navigator.pushNamed(context, '/signuppage');
                       },
                   ),

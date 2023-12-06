@@ -108,6 +108,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.pop(context);
+                      Navigator.pushNamed(context, '/loginpage');
                     },
                     child: const Icon(Icons.arrow_back),
                   ),
@@ -122,6 +123,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
                       Navigator.pop(context);
+                      Navigator.pushNamed(context, '/loginpage');
                     },
                 )
               ]),
@@ -394,6 +396,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ..onTap = () {
                           // Handle button click
                           Navigator.pop(context);
+                          Navigator.pushNamed(context, '/loginpage');
                         },
                     ),
                   ],
