@@ -19,10 +19,28 @@ class _SignUpPageState extends State<SignUpPage> {
       TextEditingController();
   final TextEditingController _phonenumberController = TextEditingController();
   final TextEditingController _dateofbirthController = TextEditingController();
+  DateTime _dateTime = DateTime.now();
 
   bool _obscureValue = true;
 
-  void _updateobscurevalue() {
+  void _showDataPicker() async {
+    await showDatePicker(
+            context: context,
+            initialDate: _dateTime,
+            firstDate: DateTime(1900),
+            lastDate: DateTime.now())
+        .then((value) {
+      if (value != null) {
+        setState(() {
+          _dateTime = value;
+          _dateofbirthController.text =
+              "${_dateTime.day}/${_dateTime.month}/${_dateTime.year}";
+        });
+      }
+    });
+  }
+
+  void _updateObscureValue() {
     setState(() {
       if (_obscureValue) {
         _obscureValue = false;
@@ -233,7 +251,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     IconButton(
                       onPressed: () {
-                        _updateobscurevalue();
+                        _updateObscureValue();
                       },
                       icon: const Icon(
                         Icons.remove_red_eye,
@@ -271,7 +289,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     IconButton(
                       onPressed: () {
-                        _updateobscurevalue();
+                        _updateObscureValue();
                       },
                       icon: const Icon(
                         Icons.remove_red_eye,
@@ -312,9 +330,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 width: screenSize.width * 0.9,
                 height: screenSize.height * 0.07,
                 child: TextField(
+                    readOnly: true,
+                    onTap: _showDataPicker,
                     controller: _dateofbirthController,
                     keyboardType: TextInputType.datetime,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.date_range,
                             color: Color.fromRGBO(174, 217, 224, 1)),
@@ -349,9 +368,36 @@ class _SignUpPageState extends State<SignUpPage> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 15,
                         fontFamily: 'Intel',
                         fontWeight: FontWeight.bold)),
+              )),
+          Positioned(
+              top: screenSize.height * 0.925,
+              left: screenSize.width * 0.25,
+              child: RichText(
+                text: TextSpan(
+                  text: "Already have an account? ",
+                  style: const TextStyle(
+                    color: Color.fromARGB(255, 92, 91, 91),
+                    fontSize: 15,
+                  ),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'Login',
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 92, 91, 91),
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          // Handle button click
+                          Navigator.pop(context);
+                        },
+                    ),
+                  ],
+                ),
               ))
         ],
       ),
