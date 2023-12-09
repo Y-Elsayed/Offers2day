@@ -1,22 +1,47 @@
+// Packages
 import 'package:flutter/material.dart';
 
+// Files
+import 'home_pages/home.dart';
+import 'home_pages/settings.dart';
+import 'home_pages/profile.dart';
+
 class HomePage extends StatefulWidget {
-  const HomePage({
-    Key? key,
-  }) : super(key: key);
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  // List<Post> feedPosts = []; // Example data structure for feed posts
+  // The index of the bottom navigation icon tapped
+  int _selectedIndex = 0;
+
+  // A list of pages to navigate to from the bottom
+  // navigation bar
+  final List<Widget> _pages = [
+    const Home(),
+    const Settings(),
+    const Profile(),
+  ];
+
+  // A method that changes the index to the tapped icon's
+  // index
+  void _navigateBottomBar(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
+        body: _pages[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           backgroundColor: const Color(0xFFF5F5F5),
+          currentIndex: _selectedIndex,
+          onTap: _navigateBottomBar,
           selectedItemColor: Colors.black,
           items: const [
             // Home
@@ -28,63 +53,6 @@ class _HomePageState extends State<HomePage> {
             // Profile
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
           ],
-        ),
-        body: Container(
-            width: screenSize.width,
-            height: screenSize.height,
-            clipBehavior: Clip.antiAlias,
-            decoration: const BoxDecoration(color: Color(0xFFF5F5F5)),
-            child: Column(children: [
-              const SearchBar(
-                hintText: "Search offers",
-              ),
-              //starting from here will be a list view
-              Container(
-                  color: const Color.fromARGB(255, 248, 183, 108),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            //filter logic
-                          },
-                          icon: const Icon(Icons.restaurant_rounded, size: 40)),
-                      IconButton(
-                          onPressed: () {
-                            //filter logic
-                          },
-                          icon: const Icon(Icons.restaurant_rounded, size: 40)),
-                      IconButton(
-                          onPressed: () {
-                            //filter logic
-                          },
-                          icon: const Icon(Icons.restaurant_rounded, size: 40)),
-                    ],
-                  )),
-              // const Gap(20),
-              //This will contain the Hot offers, automatically swiped
-              SizedBox(
-                width: screenSize.width,
-                height: screenSize.height * 0.4,
-                child: Image.asset(
-                  'assets/offer_placeholder.jpg',
-                  fit: BoxFit.cover,
-                ),
-              ),
-              //This will have the filter iconbuttons
-              //This will be the scrollable offers
-              Expanded(
-                child: SizedBox(
-                  width: screenSize.width,
-                  height: screenSize.height * 0.35,
-                  child: Container(
-                      color: Colors.blue,
-                      child: const Center(
-                          child: Text(
-                        "Here will be the user's feed",
-                      ))),
-                ),
-              ),
-            ])));
+        ));
   }
 }
