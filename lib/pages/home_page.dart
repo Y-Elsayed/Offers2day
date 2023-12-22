@@ -1,6 +1,7 @@
 // Packages
 import 'package:flutter/material.dart';
 
+
 // Files
 import 'home_pages/home.dart';
 import 'home_pages/settings.dart';
@@ -36,23 +37,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _pages[_selectedIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: const Color(0xFFF5F5F5),
-          currentIndex: _selectedIndex,
+         body: _pages[_selectedIndex],
+         bottomNavigationBar: BottomNavigationBar(
+           type: BottomNavigationBarType.fixed,
+           backgroundColor: const Color(0xFFF5F5F5),
+           currentIndex: _selectedIndex,
           onTap: _navigateBottomBar,
-          selectedItemColor: Colors.black,
+           selectedItemColor: Colors.black,
+       
           items: const [
             // Home
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
 
-            // Menu
-            BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Settings"),
+             // Menu
+             BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Settings"),
 
-            // Profile
+             // Profile
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-          ],
-        ));
+           ],
+         )
+        );
   }
 }
