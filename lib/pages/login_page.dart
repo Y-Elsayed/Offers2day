@@ -14,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
 
   bool _obscureValue = true;
-   bool business = false;
+  bool business = false;
   void _updateObscureValue() {
     setState(() {
       if (_obscureValue) {
