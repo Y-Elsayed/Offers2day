@@ -1,7 +1,6 @@
 // Packages
 import 'package:flutter/material.dart';
 
-
 // Files
 import 'pages/login_page.dart';
 import 'pages/signup_page.dart';
@@ -21,16 +20,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
-      routes: {
-        '/loginpage': (context) => const LoginPage(),
-        '/signuppage': (context) => const SignUpPage(),
-        '/signupas': (context) => const Sign_up_as(),
-        '/forgetpasswordpage': (context) => const ForgetPasswordPage(),
-        '/homepage': (context) => const HomePage(),
-        '/businessview': (context) => const Business(),
-        '/businesspage': (context) => const Businesspage(),
-         });
+        debugShowCheckedModeBanner: false,
+        home: const LoginPage(),
+        routes: {
+          '/loginpage': (context) => const LoginPage(),
+          '/signuppage': (context) => const SignUpPage(),
+          '/signupas': (context) => const SignUpAs(),
+          '/forgetpasswordpage': (context) => const ForgetPasswordPage(),
+          '/homepage': (context) => const HomePage(),
+          '/businessview': (context) => const Business(),
+          '/businesspage': (context) => const Businesspage(),
+        });
   }
 }
