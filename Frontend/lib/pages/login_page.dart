@@ -1,6 +1,8 @@
 // Packages
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,9 +14,24 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
   bool _obscureValue = true;
   bool business = false;
+
+  Future<void> login() async {
+    try {
+      final response = await http.get(Uri.parse('http://192.168.1.110:5000/'));
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        print(data['message']);
+      } else {
+        throw Exception('Failed to load data');
+      }
+    } catch (error) {
+      print('Error during login: $error');
+      // Handle the error as needed, e.g., show an error message to the user
+    }
+  }
+
   void _updateObscureValue() {
     setState(() {
       if (_obscureValue) {
@@ -195,13 +212,14 @@ class _LoginPageState extends State<LoginPage> {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    if (business) {
-                      // If Remember Me is true, navigate to another page (e.g., '/otherpage')
-                      Navigator.pushNamed(context, '/businessview');
-                    } else {
-                      // If Remember Me is false, navigate to the default home page (e.g., '/homepage')
-                      Navigator.pushNamed(context, '/homepage');
-                    }
+                    login();
+                    // if (business) {
+                    //   // If Remember Me is true, navigate to another page (e.g., '/otherpage')
+                    //   Navigator.pushNamed(context, '/businessview');
+                    // } else {
+                    //   // If Remember Me is false, navigate to the default home page (e.g., '/homepage')
+                    //   Navigator.pushNamed(context, '/homepage');
+                    // }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromRGBO(174, 217, 224, 1),
@@ -316,8 +334,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 50,
                           decoration: const BoxDecoration(
                               image: DecorationImage(
-                            image: AssetImage(
-                                "assets/linkedin-logo.webp"),
+                            image: AssetImage("assets/linkedin-logo.webp"),
                             fit: BoxFit.fitWidth,
                           )),
                         ),
