@@ -1,4 +1,4 @@
-#Sun Dec 24 14:57:28 EET 2023
-base.0=C\:\\Users\\yasso\\OneDrive\\Desktop\\Offers2day\\Offers2day\\Frontend\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Sun Dec 24 15:30:12 EET 2023
+base.0=C\:\\Users\\Abdul\\Documents\\GitHub\\Offers2day\\Frontend\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
