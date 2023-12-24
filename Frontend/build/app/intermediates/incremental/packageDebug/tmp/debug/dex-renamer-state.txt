@@ -1,0 +1,4 @@
+#Sun Dec 24 15:56:18 EET 2023
+base.0=C\:\\Users\\Abdul\\Documents\\GitHub\\Offers2day\\Frontend\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
