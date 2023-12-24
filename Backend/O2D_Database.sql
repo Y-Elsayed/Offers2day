@@ -1,15 +1,21 @@
 CREATE DATABASE Offers2Day;
-USE Offers2day;
-/* <table_name> Table
+USE Offers2Day;
 
-<Table_description.
-	Contains what the table is created for and it's purpose.
->
+/* Customers Table
+
+This table contains all the information of the customers in
+the application.
 
 Attributes:
-	<Contains the attributes inside the table in the formate of
-	<attribute_name> (<attribute_type>)
-	>
+	PK userID (int): The unique attribute assigned to each user. Starting at 1 and increments by 1.
+	firstName (string): The customer's first name.
+	lastName (string): The customer's last name.
+	userName (string): The customer's application user name.
+	userPFP (blob): The customer's profile picture.
+	email (string): The customer's email.
+	gender (string): The customer's gender.
+	birthDate (date): The customer's birth date.
+	phoneNumber (string): The customer's phone number.
 
 */
 CREATE TABLE Customers (
@@ -38,13 +44,13 @@ The table that contains all the nessesary information for the
 business in the database.
 
 Attributes:
-	businessID (int):
-	businessName (string):
-	businessType (string):
-	description (string)
-	address (string):
-	email (string):
-	status (char):
+	businessID (int): The unique attribute assigned to each business. Starting at 1 and increments by 1.
+	businessName (string): The business's name.
+	businessType (string): The business's type. Which could be one of three things (Hyper Markets, Clothing Stores or Food Stores).
+	description (string): A brief description about the business.
+	address (string): The address of the business.
+	email (string): The business's email.
+	status (char): The status on the business which could be one of 3 things ('A': Approved, 'P': Pending or 'R': Rejected).
 
 */
 CREATE TABLE Businesses (
@@ -66,16 +72,20 @@ CREATE TABLE BusinessPasswords (
 	FOREIGN KEY (businessID) REFERENCES Businesses (businessID) ON DELETE CASCADE
 );
 
-/* <table_name> Table
+/* Offers Table
 
-<Table_description.
-	Contains what the table is created for and it's purpose.
->
+This table contains the basic info about the offer that the businesses
+places onto our application.
 
 Attributes:
-	<Contains the attributes inside the table in the formate of
-	<attribute_name> (<attribute_type>)
-	>
+	offerID (int): The unique attribute assigned to each offer. Starting at 1 and increments by 1.
+	title (string): The offer's title.
+	description (string): The offer's description.
+	price (int): The offer's price.
+	startDate (date): The offer's start date.
+	endDate (date): The offer's end date.
+	status (char): The offer's status which could be either ('A': Active, 'I': Inactive).
+	img (blob): The offer's image.
 
 */
 CREATE TABLE Offers (
@@ -106,16 +116,13 @@ CREATE TABLE Posts (
 	FOREIGN KEY (offerID) REFERENCES Offers (offerID)
 );
 
-/* <table_name> Table
+/* Admins Table
 
-<Table_description.
-	Contains what the table is created for and it's purpose.
->
+This table contains all the information needed to be known on each admin.
 
 Attributes:
-	<Contains the attributes inside the table in the formate of
-	<attribute_name> (<attribute_type>)
-	>
+	adminID (int): The unique attribute assigned to each admin. Starting at 1 and increments by 1.
+	adminName (string): The name of the admin.
 
 */
 CREATE TABLE Admins (
