@@ -45,10 +45,10 @@ class _LoginPageState extends State<LoginPage> {
         child: Stack(
           children: [
             // "Sign in"
-            const Positioned(
-              top: 62, //62
-              left: 165, //165
-              child: Text("Sign in",
+            Positioned(
+              top: screenSize.height * 0.0714,
+              left: screenSize.width * 0.401,
+              child: const Text("Sign in",
                   style: TextStyle(
                     fontFamily: "Inter",
                     fontSize: 30,
@@ -58,8 +58,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
             //switch button for users and businesses
             Positioned(
-              top: 369,
-              left: 10,
+              top: screenSize.height * 0.425,
+              left: screenSize.width * 0.024,
               child: Row(
                 children: [
                   Switch(
@@ -83,8 +83,8 @@ class _LoginPageState extends State<LoginPage> {
 
             // Email/User name textfield
             Positioned(
-                top: 180,
-                left: 20,
+                top: screenSize.height * 0.207,
+                left: screenSize.width * 0.048,
                 child: SizedBox(
                   width: screenSize.width * 0.9,
                   height: 50,
@@ -118,8 +118,8 @@ class _LoginPageState extends State<LoginPage> {
 
             // The password text field
             Positioned(
-              top: 262,
-              left: 20,
+              top: screenSize.height * 0.302,
+              left: screenSize.width * 0.048,
               child: SizedBox(
                 width: screenSize.width * 0.9,
                 height: 50,
@@ -170,8 +170,8 @@ class _LoginPageState extends State<LoginPage> {
 
             // Forgot password
             Positioned(
-              top: 369,
-              left: 257.5,
+              top: screenSize.height * 0.425,
+              left: screenSize.width * 0.625,
               child: TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/forgetpasswordpage');
@@ -188,8 +188,8 @@ class _LoginPageState extends State<LoginPage> {
 
             // Sign in/Login in Button
             Positioned(
-              top: 444,
-              left: 20,
+              top: screenSize.height * 0.511,
+              left: screenSize.width * 0.048,
               child: SizedBox(
                 width: screenSize.width * 0.9,
                 height: 50,
@@ -223,10 +223,10 @@ class _LoginPageState extends State<LoginPage> {
             ),
 
             // Other Sign in options
-            const Positioned(
-              top: 551,
-              left: 165,
-              child: Text(
+            Positioned(
+              top: screenSize.height * 0.635,
+              left: screenSize.width * 0.401,
+              child: const Text(
                 "Or sign in with",
                 style: TextStyle(
                   color: Color.fromRGBO(51, 51, 51, 1),
@@ -238,8 +238,8 @@ class _LoginPageState extends State<LoginPage> {
 
             // Icons for other sign in options
             Positioned(
-              top: 593,
-              left: 79,
+              top: screenSize.height * 0.683,
+              left: screenSize.width * 0.192,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -254,10 +254,9 @@ class _LoginPageState extends State<LoginPage> {
                         child: Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               image: DecorationImage(
-                            image: AssetImage(
-                                "assets/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png"),
+                            image: AssetImage("assets/google-logo.png"),
                             fit: BoxFit.fitWidth,
                           )),
                         ),
@@ -275,10 +274,9 @@ class _LoginPageState extends State<LoginPage> {
                         child: Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               image: DecorationImage(
-                            image: AssetImage(
-                                "assets/64be60d72112bdfca69a01f0.png"),
+                            image: AssetImage("assets/twitter-logo.png"),
                             fit: BoxFit.fitWidth,
                           )),
                         ),
@@ -296,9 +294,9 @@ class _LoginPageState extends State<LoginPage> {
                         child: Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               image: DecorationImage(
-                            image: AssetImage("assets/Facebook_Logo_2023.png"),
+                            image: AssetImage("assets/facebook_logo.png"),
                             fit: BoxFit.fitWidth,
                           )),
                         ),
@@ -319,7 +317,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: const BoxDecoration(
                               image: DecorationImage(
                             image: AssetImage(
-                                "assets/linkedin-logo-linkedin-icon-transparent-free-png.webp"),
+                                "assets/linkedin-logo.webp"),
                             fit: BoxFit.fitWidth,
                           )),
                         ),
@@ -332,8 +330,8 @@ class _LoginPageState extends State<LoginPage> {
 
             // Sign up button
             Positioned(
-              top: 700,
-              left: 110,
+              top: screenSize.height * 0.806,
+              left: screenSize.width * 0.267,
               child: RichText(
                 text: TextSpan(
                   style: const TextStyle(
