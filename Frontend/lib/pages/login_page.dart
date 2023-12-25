@@ -16,18 +16,29 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
   bool _obscureValue = true;
   bool business = false;
+  String errorMessage = '';
 
-  Future<void> login() async {
+  Future<bool> login(
+      String email, String password, bool customerbusiness) async {
     try {
-      final response = await http.get(Uri.parse('http://192.168.1.110:5000/'));
+      final Uri uri = Uri.parse('http://192.168.35.177:5000/login');
+
+      final response = await http.post(
+        uri,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'email': email,
+          'password': password,
+          'customerbusiness': customerbusiness.toString(),
+        }),
+      );
       if (response.statusCode == 200) {
-        final data = json.decode(response.body);
-        print(data['message']);
+        return true;
       } else {
-        throw Exception('Failed to load data');
+        return false;
       }
     } catch (error) {
-      print('Error during login: $error');
+      return false;
       // Handle the error as needed, e.g., show an error message to the user
     }
   }
@@ -95,6 +106,15 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ],
+              ),
+            ),
+
+            Positioned(
+              top: screenSize.height * 0.380,
+              left: screenSize.width * 0.09,
+              child: Text(
+                errorMessage,
+                style: const TextStyle(color: Colors.red),
               ),
             ),
 
@@ -202,7 +222,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-
             // Sign in/Login in Button
             Positioned(
               top: screenSize.height * 0.511,
@@ -212,14 +231,23 @@ class _LoginPageState extends State<LoginPage> {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    login();
-                    // if (business) {
-                    //   // If Remember Me is true, navigate to another page (e.g., '/otherpage')
-                    //   Navigator.pushNamed(context, '/businessview');
-                    // } else {
-                    //   // If Remember Me is false, navigate to the default home page (e.g., '/homepage')
-                    //   Navigator.pushNamed(context, '/homepage');
-                    // }
+                    login(_emailController.text, _passwordController.text,
+                            business)
+                        .then((bool loginSuccessful) {
+                      if (loginSuccessful) {
+                        if (business) {
+                          // If Remember Me is true, navigate to another page (e.g., '/otherpage')
+                          Navigator.pushNamed(context, '/businessview');
+                        } else {
+                          // If Remember Me is false, navigate to the default home page (e.g., '/homepage')
+                          Navigator.pushNamed(context, '/homepage');
+                        }
+                      } else {
+                        setState(() {
+                          errorMessage = 'Incorrect username or password';
+                        });
+                      }
+                    });
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromRGBO(174, 217, 224, 1),
