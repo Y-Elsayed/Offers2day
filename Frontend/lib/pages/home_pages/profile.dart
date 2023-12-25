@@ -42,22 +42,22 @@ class _ProfileState extends State<Profile> {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-        width: 430,
-        height: 932,
+        width: screenSize.width,
+        height: screenSize.height,
         clipBehavior: Clip.antiAlias,
         decoration: const BoxDecoration(color: Color(0xFFF5F5F5)),
         child: Stack(
           children: [
             Positioned(
-              left: 250,
-              top: 1250,
+              left: screenSize.width * 0.607,
+              top: screenSize.height * 1.441,
               child: Transform(
                 transform: Matrix4.identity()
                   ..translate(0.0, 0.0)
                   ..rotateZ(3.14),
                 child: Container(
-                  width: 500,
-                  height: 500,
+                  width: screenSize.width * 1.215,
+                  height: screenSize.height * 0.576,
                   decoration: const ShapeDecoration(
                     color: Color.fromARGB(175, 174, 217, 224),
                     shape: OvalBorder(),
@@ -66,15 +66,15 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Positioned(
-              left: 636,
-              top: 1067,
+              left: screenSize.width * 1.545,
+              top: screenSize.height * 1.23,
               child: Transform(
                 transform: Matrix4.identity()
                   ..translate(0.0, 0.0)
                   ..rotateZ(3.14),
                 child: Container(
-                  width: 359,
-                  height: 359,
+                  width: screenSize.width * 0.872,
+                  height: screenSize.height * 0.413,
                   decoration: const ShapeDecoration(
                     color: Color.fromARGB(225, 255, 218, 185),
                     shape: OvalBorder(),
@@ -82,10 +82,10 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
             ),
-            const Positioned(
-              left: 125,
-              top: 100,
-              child: Text(
+            Positioned(
+              left: screenSize.width * 0.303,
+              top: screenSize.height * 0.115,
+              child: const Text(
                 'My Profile',
                 style: TextStyle(
                   color: Color(0xFF666666),
@@ -97,8 +97,8 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Positioned(
-              top: 160.0,
-              left: 115.0,
+              top: screenSize.height * 0.184,
+              left: screenSize.width * 0.279,
               child: Stack(children: <Widget>[
                 const CircleAvatar(
                   radius: 90.0,
@@ -106,7 +106,7 @@ class _ProfileState extends State<Profile> {
                       AssetImage('assets/profile_placeholder.webp'),
                 ),
                 Positioned(
-                  bottom: -6,
+                  bottom: -screenSize.height * 0.006,
                   right: 30.0,
                   child: IconButton(
                     onPressed: () {},
@@ -120,7 +120,7 @@ class _ProfileState extends State<Profile> {
               ]),
             ),
             Positioned(
-              top: 370,
+              top: screenSize.height * 0.426,
               left: screenSize.width * 0.055,
               child: SizedBox(
                 width: screenSize.width * 0.43,
@@ -154,7 +154,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Positioned(
-              top: 370,
+              top: screenSize.height * 0.426,
               left: screenSize.width * 0.503,
               child: SizedBox(
                 width: screenSize.width * 0.45,
@@ -188,7 +188,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Positioned(
-              top: 450,
+              top: screenSize.height * 0.518,
               left: screenSize.width * 0.055,
               child: SizedBox(
                 width: screenSize.width * 0.9,
