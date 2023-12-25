@@ -31,7 +31,11 @@ def login():
         #our query
         #customer
         if customer_business == "Customer":
-            query = "SELECT * FROM Customers C JOIN CustomerPasswords CP ON C.userID = CP.userID WHERE (C.email = %s OR C.username = %s) AND CP.password = %s"
+            query = """
+            SELECT * FROM Customers C
+            JOIN CustomerPasswords CP ON C.userID = CP.userID
+            WHERE (C.email = %s OR C.username = %s) AND CP.customerPassword = %s
+            """
         #business
         else:
             query = """
