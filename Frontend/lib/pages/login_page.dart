@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -21,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   Future<bool> login(
       String email, String password, bool customerbusiness) async {
     try {
-      final Uri uri = Uri.parse('http://192.168.35.177:5000/login');
+      final Uri uri = Uri.parse('http://192.168.34.91:5000/login');
 
       final response = await http.post(
         uri,
@@ -72,10 +73,16 @@ class _LoginPageState extends State<LoginPage> {
         ),
         child: Stack(
           children: [
+            Positioned(
+              top: -screenSize.height * 0.01,
+              left: 0,
+              right: 0,
+              child: SvgPicture.asset('assets/O2D_Logo.svg', width: 250,),),
+
             // "Sign in"
             Positioned(
-              top: screenSize.height * 0.0714,
-              left: screenSize.width * 0.401,
+              top: screenSize.height * 0.238,
+              left: screenSize.width * 0.040,
               child: const Text("Sign in",
                   style: TextStyle(
                     fontFamily: "Inter",
@@ -84,34 +91,10 @@ class _LoginPageState extends State<LoginPage> {
                     color: Color.fromRGBO(102, 102, 102, 1),
                   )),
             ),
-            //switch button for users and businesses
-            Positioned(
-              top: screenSize.height * 0.425,
-              left: screenSize.width * 0.024,
-              child: Row(
-                children: [
-                  Switch(
-                    value: business,
-                    onChanged: (value) {
-                      _switchtobusiness(value);
-                    },
-                    activeColor: const Color.fromRGBO(174, 217, 224, 1),
-                  ),
-                  const Text(
-                    'Business',
-                    style: TextStyle(
-                      fontSize: 15.0,
-                      color: Color.fromARGB(255, 73, 72, 72),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
 
             Positioned(
-              top: screenSize.height * 0.380,
-              left: screenSize.width * 0.09,
+              top: screenSize.height * 0.455,
+              left: screenSize.width * 0.06,
               child: Text(
                 errorMessage,
                 style: const TextStyle(color: Colors.red),
@@ -120,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
 
             // Email/User name textfield
             Positioned(
-                top: screenSize.height * 0.207,
+                top: screenSize.height * 0.310,
                 left: screenSize.width * 0.048,
                 child: SizedBox(
                   width: screenSize.width * 0.9,
@@ -155,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
 
             // The password text field
             Positioned(
-              top: screenSize.height * 0.302,
+              top: screenSize.height * 0.382,
               left: screenSize.width * 0.048,
               child: SizedBox(
                 width: screenSize.width * 0.9,
@@ -205,9 +188,34 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
 
+            //switch button for users and businesses
+            Positioned(
+              top: screenSize.height * 0.499,
+              left: screenSize.width * 0.024,
+              child: Row(
+                children: [
+                  Switch(
+                    value: business,
+                    onChanged: (value) {
+                      _switchtobusiness(value);
+                    },
+                    activeColor: const Color.fromRGBO(174, 217, 224, 1),
+                  ),
+                  const Text(
+                    'Business',
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      color: Color.fromARGB(255, 73, 72, 72),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
             // Forgot password
             Positioned(
-              top: screenSize.height * 0.425,
+              top: screenSize.height * 0.499,
               left: screenSize.width * 0.625,
               child: TextButton(
                 onPressed: () {
@@ -224,8 +232,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
             // Sign in/Login in Button
             Positioned(
-              top: screenSize.height * 0.511,
-              left: screenSize.width * 0.048,
+              top: screenSize.height * 0.581,
+              left: screenSize.width * 0.051,
               child: SizedBox(
                 width: screenSize.width * 0.9,
                 height: 50,
@@ -270,8 +278,8 @@ class _LoginPageState extends State<LoginPage> {
 
             // Other Sign in options
             Positioned(
-              top: screenSize.height * 0.635,
-              left: screenSize.width * 0.401,
+              top: screenSize.height * 0.695,
+              left: screenSize.width * 0.387,
               child: const Text(
                 "Or sign in with",
                 style: TextStyle(
@@ -284,8 +292,8 @@ class _LoginPageState extends State<LoginPage> {
 
             // Icons for other sign in options
             Positioned(
-              top: screenSize.height * 0.683,
-              left: screenSize.width * 0.192,
+              top: screenSize.height * 0.72,
+              left: screenSize.width * 0.13,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -318,8 +326,8 @@ class _LoginPageState extends State<LoginPage> {
                           // when pressed navigate to ... whatever baa enty 3ayza eh
                         },
                         child: Container(
-                          width: 50,
-                          height: 50,
+                          width: 80,
+                          height: 80,
                           decoration: const BoxDecoration(
                               image: DecorationImage(
                             image: AssetImage("assets/twitter-logo.png"),
@@ -358,8 +366,8 @@ class _LoginPageState extends State<LoginPage> {
                           // when pressed navigate to ... whatever baa enty 3ayza eh
                         },
                         child: Container(
-                          width: 50,
-                          height: 50,
+                          width: 80,
+                          height: 80,
                           decoration: const BoxDecoration(
                               image: DecorationImage(
                             image: AssetImage("assets/linkedin-logo.webp"),
@@ -375,8 +383,8 @@ class _LoginPageState extends State<LoginPage> {
 
             // Sign up button
             Positioned(
-              top: screenSize.height * 0.806,
-              left: screenSize.width * 0.267,
+              top: screenSize.height * 0.865,
+              left: screenSize.width * 0.252,
               child: RichText(
                 text: TextSpan(
                   style: const TextStyle(
