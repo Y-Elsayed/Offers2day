@@ -1,10 +1,9 @@
 // Packages
 import 'package:flutter/material.dart';
 
-
 // Files
 import 'home_pages/home.dart';
-import 'home_pages/settings.dart';
+import 'home_pages/favorites.dart';
 import 'home_pages/profile.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   // navigation bar
   final List<Widget> _pages = [
     const Home(),
-    const Settings(),
+    const Favorites(),
     const Profile(),
   ];
 
@@ -37,25 +36,42 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-         body: _pages[_selectedIndex],
-         bottomNavigationBar: BottomNavigationBar(
-           type: BottomNavigationBarType.fixed,
-           backgroundColor: const Color(0xFFF5F5F5),
-           currentIndex: _selectedIndex,
-          onTap: _navigateBottomBar,
-           selectedItemColor: Colors.black,
-       
-          items: const [
-            // Home
-             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+      body: _pages[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: const Color(0xFFF5F5F5),
+        currentIndex: _selectedIndex,
+        onTap: _navigateBottomBar,
+        selectedItemColor: Colors.black,
+        items: const [
+          // Home
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                //color: Color.fromRGBO(255, 218, 185, 1),
+                size: 30,
+              ),
+              label: "Home"),
 
-             // Menu
-             BottomNavigationBarItem(icon: Icon(Icons.menu), label: "Settings"),
+          // Menu
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.favorite,
+                //color: Colors.red,
+                size: 29,
+              ),
+              label: "Favorites"),
 
-             // Profile
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-           ],
-         )
-        );
+          // Profile
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+                //color: Color.fromRGBO(174, 217, 224, 1),
+                size: 30,
+              ),
+              label: "Profile"),
+        ],
+      ),
+    );
   }
 }
