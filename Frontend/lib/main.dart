@@ -9,6 +9,7 @@ import 'pages/forget_password_page.dart';
 import 'pages/home_page.dart';
 import 'pages/business_view.dart';
 import 'pages/businesspage.dart';
+import 'package:offers2day/pages/start_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const HomePage(),
+        home: const Startpage(),
         routes: {
           '/loginpage': (context) => const LoginPage(),
           '/signuppage': (context) => const SignUpPage(),
