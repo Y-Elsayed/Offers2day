@@ -1,5 +1,6 @@
-// favorites.dart
 import 'package:flutter/material.dart';
+
+// Widget
 import 'package:offers2day/pages/widgets/favorites_widget.dart';
 
 class Favorites extends StatefulWidget {

@@ -1,6 +1,3 @@
-// favorites_widget.dart
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class ContainerWithClickableHeart extends StatefulWidget {
