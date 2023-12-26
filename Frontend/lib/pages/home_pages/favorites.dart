@@ -15,20 +15,33 @@ class _FavoritesState extends State<Favorites> {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Favorites",
+          style: TextStyle(
+            fontFamily: "Intern",
+            fontSize: 35,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
       ),
-      itemCount: itemKeys.length,
-      itemBuilder: (BuildContext context, int index) {
-        return ContainerWithClickableHeart(
-          itemKey: itemKeys[index],
-          index: index,
-          onRemove: () {
-            removeItem(index);
-          },
-        );
-      },
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+        ),
+        itemCount: itemKeys.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ContainerWithClickableHeart(
+            itemKey: itemKeys[index],
+            index: index,
+            onRemove: () {
+              removeItem(index);
+            },
+          );
+        },
+      ),
     );
   }
 
