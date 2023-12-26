@@ -2,6 +2,7 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:offers2day/pages/widgets/offers_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,7 +18,8 @@ class _HomeState extends State<Home> {
     'https://via.placeholder.com/350x150',
   ];
 
-  final List<String> items = List.generate(10, (index) => 'Product ${index + 1}');
+  final List<String> items =
+      List.generate(10, (index) => 'Product ${index + 1}');
 
   late PageController _pageController;
   int _currentPage = 0;
@@ -142,7 +144,7 @@ class _HomeState extends State<Home> {
           ListView(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 100.0),
+                padding: const EdgeInsets.only(top: 30.0),
                 child: Container(
                   height: 10000,
                   child: Column(
@@ -251,7 +253,8 @@ class _HomeState extends State<Home> {
                                   ),
                                   Text(
                                     "Restaurants",
-                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   )
                                 ],
                               ),
@@ -280,7 +283,8 @@ class _HomeState extends State<Home> {
                                   ),
                                   Text(
                                     "Hyper Markets",
-                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   )
                                 ],
                               ),
@@ -309,7 +313,8 @@ class _HomeState extends State<Home> {
                                   ),
                                   Text(
                                     "Clothing Stores",
-                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   )
                                 ],
                               ),
@@ -320,37 +325,27 @@ class _HomeState extends State<Home> {
                       SizedBox(height: 50),
                       Expanded(
                         child: Container(
-                          width: 500,
+                          height: 400,
+                          width: 100,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Color(0xffAED9E0),
                           ),
-
-                          
                           child: GridView.builder(
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 1,
-                              crossAxisSpacing: 100.0,
-                              mainAxisSpacing: 100.0,
-                            ),                          
+                              crossAxisSpacing: 10.0,
+                              mainAxisSpacing: 10.0,
+                            ),
                             itemCount: items.length,
                             itemBuilder: (BuildContext context, int index) {
-                        
-                              return Card(
-                                child: Center(
-                                  child: ListTile(
-                                    title: Text(items[index]),
-                                    onTap: () {
-                                      // Handle item tap
-                                      print('Tapped on: ${items[index]}');
-                                    },
-                                  ),
-                                ),
-                              );
+                              return OffersWidget();
                             },
                           ),
                         ),
                       ),
+
                       SizedBox(height: 200), // Additional space for scrolling
                     ],
                   ),
