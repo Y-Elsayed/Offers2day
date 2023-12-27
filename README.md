@@ -1,3 +1,5 @@
+<p align='center'><img src="Frontend/assets/O2D_Logo.svg" alt="O2D Logo" width="300" height="auto"></p>
+
 # <p align='center'>Offers2Day</p>
 
     An application that accumlates all the offeres offered by Food Stores, Clothing Stores and Hyper Markets in one place.
